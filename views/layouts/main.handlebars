@@ -12,6 +12,7 @@
                 <nav>
                 <h1>
                     <a href="/">Home</a>
+                    <!--- conditionally render login or logout -->
                     {{#if loggedIn}}
                         <a href="/dashboard">Dashboard</a>
                     {{else}}
@@ -28,8 +29,10 @@
                 </nav>
             </header>
             <main>
+                <!--- Render the sub layoyt --->
                 {{{body}}}
             </main>
+            <!--- Render script for logged in users only --->
             {{#if loggedIn}}
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
                 <script src="/public/javascript/logout.js"></script>

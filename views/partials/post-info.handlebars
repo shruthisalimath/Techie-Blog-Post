@@ -1,0 +1,14 @@
+<article class="post-card">
+    <div class="card-header">
+        <span class="card-title" style="font-size: 20px;color:green" >
+            <a href="/post/{{id}}">{{title}}</a>
+        </span>
+    </div>
+    <div class="card-body">
+        <p class="card-text" style="font-size:15px;">{{contents}}</p>
+    </div>
+    <div class="is-pulled-right">
+        <b>posted by {{user.userName}} on {{format_date created_at}}</b> |
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>    
+    </div>
+</article>
