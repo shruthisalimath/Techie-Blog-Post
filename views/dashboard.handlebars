@@ -1,0 +1,20 @@
+{{#if posts.length}}
+<section>
+    <h3>Your Posts</h3>
+    <ul>
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+            <a href="/dashboard/edit/{{post.id}}"><button c;ass="button mb-5 ml-5 is warning">Edit Post</button></a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">you currently do not  have any posts!!</h6>
+
+{{/if}}
+
+<div>
+  <a href="/dashboard/add"><button type="button" class="button newpost-btn">New Post</button></a>
+</div>

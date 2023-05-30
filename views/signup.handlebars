@@ -1,18 +1,24 @@
-{{> post-info post}}
+<div class="container">
+    <h3 style="margin-bottom: 20px;">Login</h3>
 
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="feedback"></textarea>
-    </div>
-    <div>
-        <button type="submit">Add comment</button>
-    </div>
-</form> 
-{{/if}}
+    <form class="signup-form">
+        <div>
+            <label for="username-login"><b>Username:</b></label>
+            <input type="text" id="username-signup" />
+        </div>
+        <div>
+            <label for="email-login"><b>Email:</b></label>
+            <input type="text" id="email-signup" />
+        </div>
+        <div>
+            <label for="password-login"><b>Password:</b></label>
+            <input type="password" id="password-signup" />
+        </div>
+        <div>
+            <button type="submit" id="signup-btn">Sign Up</button>
+            <a href="/login"><button type="button" class="button">Login Instead</button></a>
+        </div>
+    </form>
+</div>
 
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}}
+<script src="/public/javascript/signup.js"></script>
