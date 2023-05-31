@@ -3,8 +3,8 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    // Access our User model and run .findAll() method)
-  Comment.findAll()
+  // Access our User model and run .findAll() method)
+  Comment.findAll({})
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
@@ -31,16 +31,39 @@ router.get('/:id', (req, res) => {
 
 // Create New comment
 router.post('/', withAuth, (req, res) => {
-  Comment.create({
-    user_id: req.session.user_id,
-    post_id: req.body.post_id,
-    feedback: req.body.feedback
+  //check the session
+  if (req.session) {
+    Comment.create({
+      user_id: req.session.user_id,
+      post_id: req.body.post_id,
+      feedback: req.body.feedback
+    })
+      .then(dbCommentData => res.json(dbCommentData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+    }
+});
+
+// To update any comment
+router.put('/', withAuth, (req, res) => {
+  Comment.update(req.body, {
+      where: {
+          id: req.params.id
+      }        
   })
-    .then(dbCommentData => res.json(dbCommentData))
-    .catch(err => {
+  .then(dbCommentData =>{
+      if(!dbCommentData){
+          res.status(404).json({ message: 'No comment found with this id' });
+          return;
+      }
+      return res.json(dbCommentData);
+  })
+  .catch(err => {
       console.log(err);
-      res.status(400).json(err);
-    });
+      res.status(500).json(err);
+  });    
 });
 
 
