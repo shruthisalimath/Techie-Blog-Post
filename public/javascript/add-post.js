@@ -2,7 +2,7 @@ const newFormHandler = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('input[name="post-title"]').value.trim();
-    const contents = document.querySelector('textarea[name="post-url")').value.trim();
+    const contents = document.querySelector('textarea[name="post-content")').value.trim();
 
     //alert contents
     if (title && contents) {
@@ -22,7 +22,5 @@ const newFormHandler = async (event) => {
     }
 }
 
-document
-        .querySelector('.new-post-form')
-        .addEventListener('submit', newFormHandler);
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
   

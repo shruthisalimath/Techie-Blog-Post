@@ -1,10 +1,19 @@
+//to get path to stylesheet
 const path = require('path');
 const express = require('express');
+
+//import expression session
 const session = require('express-session');
+
+//settingup express handlebars template engine
 const exphbs = require('express-handlebars');
+
+//routes files will work as controller
 const routes = require('./controllers');
+//import helpers
 const helpers = require('./utils/helpers');
 
+//import sequilize connection
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -17,12 +26,12 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    expires: 10 * 60 * 1000, //this will setup the session sutomatically expire after 10 min
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
   },
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
@@ -43,5 +52,5 @@ app.use(routes);
 //force true everytime server restarts, it restarts cookies
 //false when program is ready
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('App Now listening'));
 });

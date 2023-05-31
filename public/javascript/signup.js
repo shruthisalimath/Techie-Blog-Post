@@ -12,6 +12,7 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
+      //check the response status
       if (response.ok) {
         console.log("succeess!!");
         alert("signed in successfully!!");
@@ -25,7 +26,5 @@ const signupFormHandler = async (event) => {
     }
   };
 
-  document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
   

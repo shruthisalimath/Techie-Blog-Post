@@ -8,6 +8,8 @@ const deleteFormHandler = async (event) => {
     console.log(id);
     const response = await fetch(`/api/posts/${id}`, {
             method: 'DELETE',
+            body: JSON.stringify({ post_id: id }),
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
@@ -18,6 +20,4 @@ const deleteFormHandler = async (event) => {
         }
 }
 
-document
-        .querySelector('.delete-post-form')
-        .addEventListener('submit', deleteFormHandler);
+document.querySelector('.delete-post-form').addEventListener('submit', deleteFormHandler);

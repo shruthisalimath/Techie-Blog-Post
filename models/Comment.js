@@ -14,23 +14,20 @@ Comment.init(
         feedback: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
-        },
+        },       
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'User',
+                model: 'user',
                 key: 'id',
             },
         },
         post_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'Post',
+                model: 'post',
                 key: 'id',
             },
         },
@@ -40,7 +37,7 @@ Comment.init(
           timestamps: false,
           freezeTableName: true,
           underscored: true,
-          modelName: 'Comment',
+          modelName: 'comment',
     }   
 );
 
