@@ -1,14 +1,21 @@
-<article class="post-card">
-    <div class="card-header">
-        <span class="card-title" style="font-size: 20px;color:green" >
-            <a href="/post/{{id}}">{{title}}</a>
-        </span>
-    </div>
-    <div class="card-body">
-        <p class="card-text" style="font-size:15px;">{{contents}}</p>
+<div class="post-card mb-6">
+    <header class="card-header card-header-title has-background-grey">
+
+        <div class="column">
+            <p class="has-text-primary-light"></p>
+            <a href="/post/{{id}}" class="has-text-black is-capitalized">{{title}}</a>
+        </div>
+        <!--- class="card-title" style="font-size: 20px;color:green"---  >
+         <div class="column">
+            <span class=""></span>
+        </div>
+    </header>
+    <div class="card-content">
+        <div class="content has-text-justified">
+             {{contents}}
     </div>
     <div class="is-pulled-right">
-        <b>posted by {{user.userName}} on {{format_date created_at}}</b> |
+        <b>posted by {{user.username}} on {{format_date created_at}}</b> |
         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>    
     </div>
-</article>
+</div>

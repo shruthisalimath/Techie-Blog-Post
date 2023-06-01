@@ -1,12 +1,16 @@
+<!--- Displaying articles --->
 {{> post-info post}}
 
+<!--- displaying form and comments --->
+<!--- only display if logged in --->
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
-        <textarea name="feedback"></textarea>
+        <textarea class="ml-5" name="feedback"></textarea>
     </div>
+
     <div>
-        <button type="submit">Add comment</button>
+        <button class="button ml-5 mb-5" type="submit">Add comment</button>
     </div>
 </form> 
 {{/if}}

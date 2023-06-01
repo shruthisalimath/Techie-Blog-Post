@@ -1,3 +1,8 @@
+<div class="mb-5 pt-3">
+  <a href="/dashboard/add"><button type="button" id="newpost-btn" class="button is-primary ">New Post</button></a>
+    <h2 class="title pb-4">Dashboard: Your Post</h2>
+</div>
+
 {{#if posts.length}}
 <section>
     <h3>Your Posts</h3>
@@ -5,7 +10,7 @@
         {{#each posts as |post|}}
         <li>
             {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}"><button c;ass="button mb-5 ml-5 is warning">Edit Post</button></a>
+            <a href="/dashboard/edit/{{post.id}}"><button class="button mb-5 ml-5 is warning">Edit Post</button></a>
         </li>
         {{/each}}
     </ul>
@@ -15,6 +20,3 @@
 
 {{/if}}
 
-<div>
-  <a href="/dashboard/add"><button type="button" class="button newpost-btn">New Post</button></a>
-</div>

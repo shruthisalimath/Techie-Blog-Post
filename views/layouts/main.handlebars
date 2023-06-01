@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" contet="width=device-width, initial-scale=1.0">
-        <title>Tech-Blog</title>
-        <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-       
-        <body>
-            <header>
-                <nav>
-                <h1>
-                    <a href="/">Home</a>
-                    <!--- conditionally render login or logout -->
-                    {{#if loggedIn}}
-                        <a href="/dashboard">Dashboard</a>
-                    {{else}}
-                        <a href="/login">Dashboard</a>
-                    {{/if}}
 
-                    {{#if loggedIn}}
-                        <button id="logout" class="btn-style">Logout</button>
-                    {{else}}
-                        <a href="/login">Login</a>
-                    {{/if}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" contet="width=device-width, initial-scale=1.0">
+    <title>Tech-Blog</title>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
 
-                </h1>
-                </nav>
-            </header>
-            <main>
-                <!--- Render the sub layoyt --->
-                {{{body}}}
-            </main>
-            <!--- Render script for logged in users only --->
+<body>
+    <div class="wrapper"></div>
+    <header id="top-header">
+        <h1 id="main-heading">Tech-Blog</h1>
+        <nav class="navbar mt-2" id="home-login">
+
+            <a href="/" class="navItem is-hoverable pt-1" id="homepage">Home</a>
+            <!--- conditionally render login or logout -->
             {{#if loggedIn}}
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-                <script src="/public/javascript/logout.js"></script>
+            <a href="/dashboard" class="navItem is-hoverable pt-1" id="homepage">Dashboard</a>
+            {{else}}
+            <a href="/login">Dashboard</a>
             {{/if}}
-        </body>
-    </head>
+
+            {{#if loggedIn}}
+            <button id="logout" class="btn-style">Logout</button>
+            {{else}}
+            <a href="/login" class="button is-primary">Login</a>
+            {{/if}}
+        </nav>
+    </header>
+
+    <main>
+        <!--- Render the sub layoyt --->
+        {{{ body }}}
+    </main>
+
+    <!--- Render script for logged in users only --->
+    {{#if loggedIn}}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/public/javascript/logout.js"></script>
+    {{/if}}
+    </div>
+</body>
+
 </html>
