@@ -1,8 +1,8 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value.trim();
-    const contents = document.querySelector('textarea[name="post-content")').value.trim();
+    const title = document.querySelector('input[name = "post-title"]').value.trim();
+    const contents = document.querySelector('input[name = "post-content"]').value.trim();
 
     //alert contents
     if (title && contents) {

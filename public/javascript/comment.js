@@ -8,8 +8,8 @@ const commentFormHandler = async (event) => {
 
     //alert contents
     if (feedback) {
-        console.log("REAL CALL HAPPENING HERE? ----------");
-        const response = await fetch(`/api/comments/`, {
+        //console.log("REAL CALL HAPPENING HERE? ----------");
+        const response = await fetch(`/api/comments`, {
             method: 'POST',
             body: JSON.stringify({ post_id, feedback }),
             headers: { 'Content-Type': 'application/json' }

@@ -173,10 +173,10 @@
       margin-top: 1em;
   }
 
-  .column{
+ /* .column{
       display:flex;
       flex-direction: column;
-  }
+  }*/
 
   #top-header{
     background-color: lavenderblush;
