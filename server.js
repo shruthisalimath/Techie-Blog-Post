@@ -27,11 +27,12 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     expires: 10 * 60 * 1000, //this will setup the session sutomatically expire after 10 min
-    httpOnly: true,
+   /* httpOnly: true,
     secure: false,
-    sameSite: 'strict',
+    sameSite: 'strict',*/
   },
   resave: true,
+  rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
