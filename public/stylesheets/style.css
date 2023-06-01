@@ -12,10 +12,10 @@
 
   a {
     text-decoration: none;
-    color: #225ca3;
+    color: black;
     font-weight: bold;
-    transition: color .1s;
-    margin-right: 20px;
+   /*transition: color .1s;
+    margin-right: 20px;*/
   }
 
   a:hover {
@@ -23,7 +23,7 @@
   }
   
   button {
-    background-color: #225ca3;
+    background-color:bisque;
     color: white;
     border: 0;
     padding: 1%;
@@ -179,15 +179,17 @@
   }
 
   #top-header{
-    background: rgb(99, 99, 253);
+    background-color: lavenderblush;
     
   }
   #home-login{
-    background: rgb(99, 99, 253);
+    background-color:blanchedalmond;
+    justify-content: center;
   }
   #main-heading{
     font-family: sans-serif;
     font-size: xx-large;
+    justify-content: center;
   }
 
 

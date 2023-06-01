@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+/*router.get('/:id', (req, res) => {
   Comment.findOne({
     where: { id: req.params.id }
   })
@@ -27,43 +27,47 @@ router.get('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+});*/
 
 // Create New comment
 router.post('/', withAuth, (req, res) => {
   //check the session
+  //console.log("Testing------------------");
   if (req.session) {
+    console.log("user_id:" + req.session.user_id);
+    console.log("post_id:" + req.body.post_id);
+    console.log("feedback:" + req.body.feedback);
     Comment.create({
-      user_id: req.session.user_id,
+      feedback: req.body.feedback,
       post_id: req.body.post_id,
-      feedback: req.body.feedback
+      user_id: req.session.user_id,
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
       });
-    }
+  }
 });
 
 // To update any comment
 router.put('/', withAuth, (req, res) => {
   Comment.update(req.body, {
-      where: {
-          id: req.params.id
-      }        
+    where: {
+      id: req.params.id
+    }
   })
-  .then(dbCommentData =>{
-      if(!dbCommentData){
-          res.status(404).json({ message: 'No comment found with this id' });
-          return;
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: 'No comment found with this id' });
+        return;
       }
       return res.json(dbCommentData);
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       console.log(err);
       res.status(500).json(err);
-  });    
+    });
 });
 
 
