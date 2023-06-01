@@ -46,22 +46,22 @@ User.init(
         hooks: {
             //set up before lifecycle "hook" functionality
             beforeCreate: async (newUserData) => {
-              newUserData.password = await bcrypt.hash(newUserData.password, 8);
-              return newUserData;
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
             },
 
             //set up beforeupdate lifecycle "hook" funtionality
             beforeUpdate: async (updatedUserData) => {
-              updatedUserData.password = await bcrypt.hash(updatedUserData.password, 8);
-              return updatedUserData;
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
             },
-          },
-          sequelize,
-          timestamps: false,
-          freezeTableName: true,
-          underscored: true,
-          modelName: 'user',
-    }   
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
+    }
 );
 
 module.exports = User;
