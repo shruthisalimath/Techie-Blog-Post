@@ -1,9 +1,10 @@
 <article class="post-card mb-6">
   <div class="card-title" style="font-size: 20px;color:green">
-    <span>{{{title}}}</span>
+
+    <a href="/post/{{id}}" class="has-text-black is-capitalized">{{title}}</a>
   </div>
   <span>{{{content}}}</span>
-  <div class="is multiline"> Date: {{{format_date created_at}}} Created by: {{{user.username}}}</div>
+  <div class="is multiline"> Date: {{{format_date created_at}}} Created by: {{{user.username}}} </div>
    <a class="is-danger is-light" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
 </article>
 

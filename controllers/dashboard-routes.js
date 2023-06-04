@@ -80,6 +80,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       res.render('edit-post', {
+        //layout: "dashboard",
         post,
         loggedIn: true,
         //user_id: req.session.userName
@@ -92,7 +93,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/create/', withAuth, (req, res) => {
+router.get('/add/', withAuth, (req, res) => {
   Post.findAll({
     where: {
       // use the ID from the session
@@ -102,7 +103,7 @@ router.get('/create/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      'post_content'
+      'content'
     ],
     include: [
       {
@@ -129,6 +130,7 @@ router.get('/create/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
 

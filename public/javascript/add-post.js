@@ -1,14 +1,14 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('input[name = "post-title"]').value.trim();
-    const contents = document.querySelector('input[name = "post-content"]').value.trim();
+    const title = document.querySelector('input[name="post-title"]').value.trim();
+    const content = document.querySelector('textarea[name="post-content"]').value.trim();
 
     //alert contents
-    if (title && contents) {
+    if (title && content) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify({ title, contents }),
+            body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
@@ -18,7 +18,7 @@ const newFormHandler = async (event) => {
         }
     }
     else {
-        alert("please enter both title and contents");
+        alert("please enter both title and content");
     }
 }
 

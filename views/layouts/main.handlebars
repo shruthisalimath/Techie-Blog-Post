@@ -7,41 +7,41 @@
     <title>Tech-Blog</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <header  id="top-header">
-            <h1 class="px-3 is-uppercase has-text-weight-bold" id="main-heading">Tech-Blog</h1>
+        <header id="top-header">
+            <h1 class="px-3  has-text-weight-bold" id="main-heading">Tech-Blog</h1>
             <nav class="navbar mt-2" id="home-login">
 
-                <a href="/" class="navItem is-hoverable pt-1" id="homepage">Home</a>
-                <!--- conditionally render login or logout -->
-                {{#if loggedIn}}
-                <a href="/dashboard" class="navItem is-hoverable pt-1" id="homepage">Dashboard</a>
-                {{else}}
-                <a href="/login">Dashboard</a>
-                {{/if}}
+               <a href="/" class="navItem is-hoverable pt-1" id="homepage">Home</a>
 
                 {{#if loggedIn}}
-                <button id="logout" class="btn-style">Logout</button>
+                <a href="/dashboard" id="homepage">Dashboard</a>
+                <button id="logout" class="btn-style">Logout</button></a>
                 {{else}}
-                <a href="/login" class="button is-primary">Login</a>
+               
+                <a href="/dashboard">Dashboard</a>
+                 <a href="/login" class="button is-primary">Login</a>
                 {{/if}}
-            </nav>
-        </header>
-
-        <main>
-            <!--- Render the sub layoyt --->
-            {{{ body }}}
-        </main>
     </div>
-        <!--- Render script for logged in users only --->
-        {{#if loggedIn}}
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="/javascript/logout.js"></script>
-        {{/if}}
-    
+    </nav>
+    </header>
+
+    <main>
+        <!--- Render the sub layoyt --->
+        {{{ body }}}
+    </main>
+    </div>
+    <!--- Render script for logged in users only --->
+    {{#if loggedIn}}
+
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+
 </body>
 
 </html>

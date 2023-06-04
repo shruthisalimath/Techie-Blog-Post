@@ -10,8 +10,8 @@
     </div>
 
     <div>
-      <label for="post-content"><b>Comment</b></label>
-      <input class="textarea" name="post-content" type="text" value="{{post.post-content}}" />
+      <label for="post-content"><b>Content</b></label>
+      <textarea class="textarea" name="post-content" value="{{post.content}}"></textarea>
     </div>
 
     <div class="is-pulled-right">
@@ -21,11 +21,14 @@
     </div>
     
     <button class="button is-success" type="submit">Update post</button>
-    <button type="button" class="button is-danger delete-post-btn">Delete post</button>
+    
   </form>
 </article>
 
-<form class="comment-form">
+<script src="/javascript/edit-post.js"></script>
+
+
+<!--- <form class="comment-form">
   <div>
     <textarea name="feedback"></textarea>
   </div>
@@ -33,10 +36,10 @@
   <div>
     <button type="submit" >Add comment</button>
   </div>
-</form>
+</form> --->
 
-{{> comments post.comments}}
+<!--- {{> comments post.comments}} --->
 
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+
+<!--- <script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script> --->

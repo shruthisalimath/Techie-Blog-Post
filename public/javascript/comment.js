@@ -1,17 +1,22 @@
+//console.log('inside comment')
+
 const commentFormHandler = async (event) => {
+    //console.log('inside commentFormHandler')
     event.preventDefault();
 
-    const feedback = document.querySelector('textarea[name="feedback"]').value.trim();
+    const feedback = document.querySelector('textarea[name="feedback"]').value;
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length -1
     ];
-
+    console.log("post id", post_id);
     //alert contents
     if (feedback) {
-        //console.log("REAL CALL HAPPENING HERE? ----------");
+       console.log(feedback);
         const response = await fetch(`/api/comments`, {
+           
             method: 'POST',
             body: JSON.stringify({ post_id, feedback }),
+          // body: JSON.stringify({feedback }),
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
