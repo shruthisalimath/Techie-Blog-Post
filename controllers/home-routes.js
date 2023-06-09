@@ -22,6 +22,10 @@ router.get('/', (req, res) => {
             model: User,
             attributes: ['username']
           }
+        },
+        {
+          model: User,
+          attributes: ['username']
         }
       ]
     })
@@ -31,7 +35,7 @@ router.get('/', (req, res) => {
       res.render('homepage', {
         posts,
         loggegIn: req.session.loggegIn,
-        //user_id: req.session.userName
+        user_id: req.session.username
       });
     })
     .catch(err => {

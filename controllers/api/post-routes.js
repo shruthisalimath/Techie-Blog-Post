@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'created_at',
-      'content',
+      'content'
+      
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -25,6 +26,7 @@ router.get('/', (req, res) => {
       },
       {
         model: User,
+        //as: 'user',
         attributes: ['username']
       }
     ]
@@ -36,7 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// find all posts by one user
+// find  posts by one user
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: { id: req.params.id },
